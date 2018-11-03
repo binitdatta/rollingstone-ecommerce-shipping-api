@@ -1,0 +1,156 @@
+How to test the User REST API
+
+1. Get All User With
+
+METHOD:  GET
+URL: http://localhost:9090/rscommerce/pdp-service/account/user
+
+Results
+
+{  
+   "content":[  
+      {  
+         "id":1,
+         "userName":"bdatta",
+         "firstName":"Binit",
+         "lastName":"Datta",
+         "sex":"M",
+         "memberType":"G",
+         "accountNumber":"10001",
+         "registrationDate":"2015-01-01"
+      }
+   ],
+   "pageable":{  
+      "sort":{  
+         "sorted":true,
+         "unsorted":false
+      },
+      "offset":0,
+      "pageSize":20,
+      "pageNumber":0,
+      "unpaged":false,
+      "paged":true
+   },
+   "last":true,
+   "totalPages":1,
+   "totalElements":1,
+   "size":20,
+   "number":0,
+   "first":true,
+   "numberOfElements":1,
+   "sort":{  
+      "sorted":true,
+      "unsorted":false
+   }
+}
+
+2. Create a New User With
+
+METHOD: POST
+URL: http://localhost:9090/rscommerce/pdp-service/account/user
+BODY:
+
+{
+  "userName": "jblackburn",
+  "firstName": "Jessica",
+  "lastName": "Blackburn",
+  "sex": "F",
+  "memberType": "G",
+  "accountNumber": "10004",
+  "registrationDate": "2015-01-02"
+}
+
+3. Verify New User Creation with
+
+METHOD:  GET
+URL: http://localhost:9090/rscommerce/pdp-service/account/user
+
+Results
+
+{  
+   "content":[  
+      {  
+         "id":3,
+         "userName":"jblackburn",
+         "firstName":"Jessica",
+         "lastName":"Blackburn",
+         "sex":"M",
+         "memberType":"G",
+         "accountNumber":"10004",
+         "registrationDate":"2015-01-01"
+      },
+      {  
+         "id":1,
+         "userName":"bdatta",
+         "firstName":"Binit",
+         "lastName":"Datta",
+         "sex":"M",
+         "memberType":"G",
+         "accountNumber":"10001",
+         "registrationDate":"2015-01-01"
+      }
+   ],
+   "pageable":{  
+      "sort":{  
+         "sorted":true,
+         "unsorted":false
+      },
+      "offset":0,
+      "pageSize":20,
+      "pageNumber":0,
+      "unpaged":false,
+      "paged":true
+   },
+   "last":true,
+   "totalPages":1,
+   "totalElements":2,
+   "size":20,
+   "number":0,
+   "first":true,
+   "numberOfElements":2,
+   "sort":{  
+      "sorted":true,
+      "unsorted":false
+   }
+}
+
+4. Update an existing user with
+
+METHOD: PUT
+URL: http://localhost:9090/rscommerce/pdp-service/account/user/3
+
+BODY:
+
+{
+  "id":3,
+  "userName": "jblackburn",
+  "firstName": "Jessica",
+  "lastName": "Blackburn",
+  "sex": "M",
+  "memberType": "G",
+  "accountNumber": "10005",
+  "registrationDate": "2015-01-02"
+}
+
+5. Verify New User Creation with
+
+METHOD:  GET
+URL: http://localhost:9090/rscommerce/pdp-service/account/user/3
+
+{  
+   "id":3,
+   "userName":"jblackburn",
+   "firstName":"Jessica",
+   "lastName":"Blackburn",
+   "sex":"M",
+   "memberType":"G",
+   "accountNumber":"10005",
+   "registrationDate":"2015-01-01"
+}
+
+6. Delete the user with id 3 
+
+METHOD: DELETE
+URL: http://localhost:9090/rscommerce/pdp-service/account/user/3
+
+

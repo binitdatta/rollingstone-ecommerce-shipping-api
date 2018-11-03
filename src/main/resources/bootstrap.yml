@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: rollingstone-ecommerce-shipping-api
+  cloud:
+    config:
+      uri: http://localhost:9000
